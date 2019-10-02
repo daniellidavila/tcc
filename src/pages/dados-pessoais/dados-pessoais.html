@@ -1,0 +1,89 @@
+<!--
+  Generated template for the DadosPessoaisPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>Dados Pessoais</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="corpo" padding>
+  <ion-slides pager>
+    <ion-slide class="slide">
+      <ion-list> 
+        <ion-item class="itemList">Nome:</ion-item>
+        <ion-item class="itemList">Sobrenome:</ion-item>
+        <ion-item class="itemList">Gênero:</ion-item>
+        <ion-item class="itemList">Email:</ion-item>
+        <ion-item class="itemList">CPF:</ion-item>
+        <ion-item class="itemList">Nome da Mãe:</ion-item>
+        <ion-item class="itemList">Nome do Pai:</ion-item>
+        <ion-item class="itemList">Data de Nascimento:</ion-item>
+        <ion-item class="itemList">Contato:</ion-item>
+      </ion-list>
+    </ion-slide>
+    <ion-slide class="slide">
+      <ion-list>
+
+        <ion-item class="itemList">
+          <ion-label class="itemLabel" fixed>Emergência:</ion-label>
+          <ion-input type="text" value="" placeholder="(00)00000-0000" class="itemInput"></ion-input>
+        </ion-item>
+
+        <ion-item class="itemList">
+          <ion-label class="itemLabel">Alergia à Medicação:</ion-label>
+          <ion-select [(ngModel)]="gaming">
+            <ion-option value="nes">NES</ion-option>
+            <ion-option value="n64">Nintendo64</ion-option>
+            <ion-option value="ps">PlayStation</ion-option>
+            <ion-option value="genesis">Sega Genesis</ion-option>
+            <ion-option value="saturn">Sega Saturn</ion-option>
+            <ion-option value="snes">SNES</ion-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item class="itemList">
+          <ion-label class="itemLabel">Alergia ao Alimento:</ion-label>
+          <ion-select [(ngModel)]="gaming">
+            <ion-option value="nes">NES</ion-option>
+            <ion-option value="n64">Nintendo64</ion-option>
+            <ion-option value="ps">PlayStation</ion-option>
+            <ion-option value="genesis">Sega Genesis</ion-option>
+            <ion-option value="saturn">Sega Saturn</ion-option>
+            <ion-option value="snes">SNES</ion-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item class="itemList">
+          <ion-label class="itemLabel">Condição Especial:</ion-label>
+          <ion-select [(ngModel)]="gaming">
+            <ion-option value="nes">NES</ion-option>
+            <ion-option value="n64">Nintendo64</ion-option>
+            <ion-option value="ps">PlayStation</ion-option>
+            <ion-option value="genesis">Sega Genesis</ion-option>
+            <ion-option value="saturn">Sega Saturn</ion-option>
+            <ion-option value="snes">SNES</ion-option>
+          </ion-select>
+        </ion-item>
+      
+        <ion-item class="itemList">
+          <ion-label class="itemLabel" fixed>Tipo Sanguíneo:</ion-label>
+          <ion-input type="text" placeholder="+O" class="itemInput"></ion-input>
+        </ion-item>
+
+        <ion-item class="itemList">
+          <ion-label class="itemLabel" fixed>CNS:</ion-label>
+          <ion-input type="text" placeholder="00.0000.0000.0000" class="itemInput"></ion-input>
+        </ion-item>
+      
+      </ion-list>
+
+      <button ion-button icon-start class="button">
+        <ion-icon name="create"></ion-icon>
+      </button>
+    </ion-slide>
+  </ion-slides>
+</ion-content>

@@ -1,3 +1,77 @@
 page-home {
+    .body{
+        background-color: #73A1A5;
+        
+    }
 
+    .conteiner{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin-top: -90px;
+    }
+
+    .img{
+        margin-top: -100px;
+    }
+
+    .doctors{
+        // background-color: blue;
+        width: 50%;
+        height: 205px;
+        border-right: solid 1.5px rgba(59, 96, 100, 0.205);
+        border-bottom: solid 1.5px rgba(59, 96, 100, 0.205);
+        text-align: center;
+        color: white;
+        font-size: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .attachments{
+        // background-color: red;
+        height: 205px;
+        width: 50%;
+        border-bottom: solid 1.5px rgba(59, 96, 100, 0.205);
+        border-left: solid 1.5px rgba(59, 96, 100, 0.205);
+        text-align: center;
+        color: white;
+        font-size: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .personalData{
+        // background-color: purple;
+        height: 205px;
+        width: 50%;
+        border-right: solid 1.5px rgba(59, 96, 100, 0.205);
+        border-top: solid 1.5px rgba(59, 96, 100, 0.205);
+        text-align: center;
+        color: white;
+        font-size: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .stickNotes{
+        // background-color: pink;
+        height: 205px;
+        width: 50%;
+        border-top: solid 1.5px rgba(59, 96, 100, 0.205);
+        border-left: solid 1.5px rgba(59, 96, 100, 0.205);
+        text-align: center;
+        color: white;
+        font-size: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
 }
