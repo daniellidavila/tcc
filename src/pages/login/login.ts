@@ -34,7 +34,7 @@ export class LoginPage {
     }
   }
 
-  goToCadastro(){
+  goToCadastroPage(){
     this.navCtrl.push(CadastroPage)
   }
 }

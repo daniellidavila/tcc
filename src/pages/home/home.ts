@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { DadosPessoaisPage } from '../dados-pessoais/dados-pessoais';
 
 @Component({
   selector: 'page-home',
@@ -11,4 +12,7 @@ export class HomePage {
 
   }
 
+  goToDadosPessoaisPage(){
+    this.navCtrl.push(DadosPessoaisPage)
+  }
 }
