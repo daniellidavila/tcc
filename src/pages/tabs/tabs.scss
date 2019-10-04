@@ -1,0 +1,17 @@
+tabs-page{
+    .tabs-md .tab-button[aria-selected=true] {
+        color: #3B6064 !important;
+
+        .tab-button-icon{
+            color: #3B6064 !important;
+        }
+    }
+
+    .tabs-md .tab-button[aria-selected=false] {
+        color: rgba(59, 96, 100, 0.6) !important;
+
+        .tab-button-icon{
+            color: rgba(59, 96, 100, 0.6) !important;
+        }
+    }
+}
