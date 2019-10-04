@@ -4,13 +4,16 @@ page-finalizar-cadastro {
         background-color: #73A1A5;
     }
 
+    .img{
+        width: 100%;
+    }
+
     .conteiner{
         display: flex;
         flex-direction: column;
-        flex-wrap: wrap;
-        margin-top: -50px;  
+        flex-wrap: wrap; 
         justify-content: space-between;
-        height: 328px;
+        margin-top: 20%;
     }
 
     .list{
@@ -20,6 +23,7 @@ page-finalizar-cadastro {
         align-items: center;
         flex-wrap: wrap;
         width: 100%;
+        margin-top: 10%;
         // margin-top: -50px;
     }
 
@@ -31,13 +35,18 @@ page-finalizar-cadastro {
         float: left;
         border-bottom: solid 3px rgba(59, 96, 100, 0.801);
         width: 80%;
+
+        ::placeholder{
+            color: rgba(255, 255, 255, 0.500);
+        }
         
     }
 
     .divButton{
         display: flex;
         width: 100%;
-        // margin-bottom: 0px !important;
+        position: absolute;
+        bottom: 0;
     }
 
     .button{

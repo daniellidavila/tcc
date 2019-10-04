@@ -11,8 +11,9 @@
 </ion-header>
 
 <ion-content class="body">
-    <img src="assets/imgs/logoHH.png" class="img">
+    
   <div class="conteiner">
+      <img src="assets/imgs/logoHH.png" class="img">
       <ion-list class="list">
 
           <ion-input type="text" placeholder="Nome" class="itemList"></ion-input>
@@ -23,9 +24,9 @@
     
       </ion-list>
     
-      <div class="divButton">
-          <button ion-button full class="button" (click)="goToCadastroPage()">Voltar</button>
-          <button ion-button full class="button" (click)="goToTabsPage()">Terminar</button>
-      </div>
   </div>
+  <footer class="divButton">
+      <button ion-button full class="button" (click)="goToCadastroPage()">Voltar</button>
+      <button ion-button full class="button" (click)="goToTabsPage()">Terminar</button>
+  </footer>
 </ion-content>
