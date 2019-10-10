@@ -1,4 +1,4 @@
-import { UsersProvider } from './../../providers/users/users';
+import { UsersProvider, PacienteCadastroClass } from './../../providers/users/users';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { LoginPage } from '../login/login';
@@ -11,12 +11,14 @@ import { FinalizarCadastroPage } from '../finalizar-cadastro/finalizar-cadastro'
   templateUrl: 'cadastro.html',
 })
 export class CadastroPage {
-  model: User;
+  model = new PacienteCadastroClass();
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, 
-    private toast: ToastController, private userProvider: UsersProvider) {
-
-      this.model = new User();
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    private toast: ToastController,
+    private userProvider: UsersProvider,
+    ) {
       this.model.nome = "Maria";
       this.model.sobrenome = "Silva";
       this.model.cpf = "000.000.000-00";
@@ -26,14 +28,23 @@ export class CadastroPage {
   }
 
   cadastrarPaciente(){
-    this.userProvider.cadastrarPaciente(this.model.nome, this.model.sobrenome, this.model.cpf, 
-      this.model.email, this.model.senha, this.model.reSenha)
-      .then((result: any) => {
-        this.toast.create({ message: 'Usuário criado com sucesso. Token: ' + result.token, position: 'botton', duration: 3000 }).present();
-      })
-      .catch((error: any) => {
-        this.toast.create({ message: 'Erro ao criar usuário. Erro: ' + error.error, position: 'botton', duration: 3000 }).present();
-      });
+    this.userProvider.cadastrarPaciente(this.model)
+    .subscribe(data => {
+      if (data.success) {
+        this.toast.create({
+          message: 'Usuário criado com sucesso',
+          position: 'botton',
+          duration: 3000
+        }).present();
+      }
+    },
+    err => {
+      this.toast.create({
+        message: `Erro ao criar usuário. Erro: ${err.error}`,
+        position: 'botton',
+        duration: 3000
+      }).present();
+    })
   }
 
   goToLoginPage(){
@@ -44,13 +55,4 @@ export class CadastroPage {
     this.navCtrl.push(FinalizarCadastroPage)
   }
 
-}
-
-export class User {
-  nome: String;
-  sobrenome: String;
-  cpf: String;
-  email: String; 
-  senha: String;
-  reSenha: String;
 }

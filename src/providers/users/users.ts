@@ -1,50 +1,44 @@
-import { Http } from '@angular/http';
+import { LoadingController } from 'ionic-angular';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import 'rxjs/add/operator/map';
+import { finalize } from 'rxjs/operators';
 
 
 @Injectable()
 export class UsersProvider {
-  private API_URL = 'localhost:3001/'
+  private BASE_URL = 'http://localhost:3001'
 
-  constructor(public http: Http) { }
+  constructor(
+    private http: HttpClient,
+    private load: LoadingController
+    ) { }
 
-  cadastrarPaciente(nome: String, sobrenome: String, cpf: String, email: String, senha: String, reSenha: String){
-    return new Promise((resolve, reject)=>{
-      var data = {
-        nome: nome,
-        sobrenome: sobrenome,
-        cpf: cpf,
-        email: email,
-        senha: senha,
-        reSenha: reSenha
-      };
-      
-      this.http.post(this.API_URL + 'paciente', data)
-      .subscribe((result: any) => {
-        resolve(result.json())
-      },
-      (error) => {
-        reject(error.json())
-      })
-    });
-  }
-
-  login(usuario: String, senha: String){
-    return new Promise((resolve, reject)=>{
-      var data = {
-        usuario: usuario,
-        senha: senha
-      };
-      
-      this.http.post(this.API_URL + 'login', data)
-      .subscribe((result: any) => {
-        resolve(result.json())
-      },
-      (error) => {
-        reject(error.json())
-      })
-    });
+  cadastrarPaciente(body: PacienteCadastro){
+    // Cria um Loading
+    const load = this.load.create({
+      content: 'Aguarde...'
+    })
+    // Manda o Loading ser apresentado na tela
+    load.present();
+    // Faz a requisição para o back-end
+    return this.http.post(`${this.BASE_URL}/paciente`, body)
+    .pipe<PayloadCadastroPaciente>(
+      // quando finaliza a requisição ele manda o Loading fechar
+      finalize<PayloadCadastroPaciente>(() => load.dismiss())
+    )
   }
 }
+// Interface da resposta do back-end
+interface PayloadCadastroPaciente {
+  success: boolean;
+}
 
+// Interface de dados que deve ser enviado para a função de cadastro
+interface PacienteCadastro {
+  nome: string,
+  sobrenome: string,
+  cpf: string,
+  email: string,
+  senha: string,
+  reSenha: string
+}

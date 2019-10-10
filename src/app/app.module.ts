@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
@@ -16,7 +17,7 @@ import { HistoricoPage } from '../pages/historico/historico';
 import { ConfiguracoesPage } from '../pages/configuracoes/configuracoes';
 import { UsersProvider } from '../providers/users/users';
 
-import { HttpModule } from '@angular/http'
+import { SessionProvider } from '../providers/session/session';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,7 @@ import { HttpModule } from '@angular/http'
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    HttpModule
+    HttpClientModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -51,7 +52,8 @@ import { HttpModule } from '@angular/http'
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    UsersProvider
+    UsersProvider,
+    SessionProvider
   ]
 })
 export class AppModule {}
