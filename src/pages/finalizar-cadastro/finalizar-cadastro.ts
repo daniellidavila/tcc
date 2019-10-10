@@ -1,14 +1,9 @@
+import { LoginPage } from './../login/login';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { CadastroPage } from '../cadastro/cadastro';
-import { TabsPage } from '../tabs/tabs';
-
-/**
- * Generated class for the FinalizarCadastroPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { UsersProvider } from '../../providers/users/users';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @IonicPage()
 @Component({
@@ -16,20 +11,66 @@ import { TabsPage } from '../tabs/tabs';
   templateUrl: 'finalizar-cadastro.html',
 })
 export class FinalizarCadastroPage {
+  cadastroForm = new FormGroup({
+    email: new FormControl(null, [Validators.required, Validators.email]),
+    senha: new FormControl(null, Validators.required),
+    reSenha: new FormControl(null, Validators.required),
+    nome: new FormControl(null, Validators.required),
+    sobrenome: new FormControl(null, Validators.required),
+    cpf: new FormControl(null, Validators.required),
+  })
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    private toast: ToastController,
+    private userProvider: UsersProvider,
+    ) {
+      // o navParams.data são os dados do formulário da outra tela
+    this.saveDataForm(this.navParams.data);
+  }
+
+  cadastrarPaciente() {
+    if (this.cadastroForm.valid) {
+      this.userProvider.cadastrarPaciente(this.cadastroForm.value)
+        .subscribe(data => {
+          if (data.success) {
+            this.toast.create({
+              message: 'Usuário criado com sucesso',
+              position: 'botton',
+              duration: 3000
+            }).present();
+            this.navCtrl.setRoot(LoginPage)
+          }
+        },
+          err => {
+            this.toast.create({
+              message: `Erro ao criar usuário. Erro: ${err.error}`,
+              position: 'botton',
+              duration: 3000
+            }).present();
+          })
+    } else {
+      this.toast.create({
+        message: 'Todos os campos são obrigatórios',
+        position: 'botton',
+        duration: 3000
+      }).present();
+    }
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad FinalizarCadastroPage');
   }
 
   goToCadastroPage() {
     this.navCtrl.push(CadastroPage);
   }
 
-  goToTabsPage() {
-    this.navCtrl.push(TabsPage);
+  saveDataForm(data) {
+    // essa função seta os dados inicias do formulário para os dados da tela anterior
+    Object.keys(data).forEach(key => {
+      this.cadastroForm.get(key).setValue(data[key]);
+    })
   }
 
 }

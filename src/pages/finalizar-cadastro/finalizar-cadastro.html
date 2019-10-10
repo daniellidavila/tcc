@@ -1,9 +1,3 @@
-<!--
-  Generated template for the FinalizarCadastroPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
   <!-- <ion-navbar>
     <ion-title>FinalizarCadastro</ion-title>
@@ -11,22 +5,26 @@
 </ion-header>
 
 <ion-content class="body">
-    
+
   <div class="conteiner">
       <img src="assets/imgs/logoHH.png" class="img">
       <ion-list class="list">
 
-          <ion-input type="text" placeholder="Nome" class="itemList"></ion-input>
-    
-          <ion-input type="text" placeholder="Sobrenome" class="itemList"></ion-input>
-    
-          <ion-input type="text" placeholder="CPF" class="itemList"></ion-input>
-    
+        <form [formGroup]="cadastroForm">
+
+          <ion-input type="text" placeholder="Nome" class="itemList" formControlName="nome"></ion-input>
+
+          <ion-input type="text" placeholder="Sobrenome" class="itemList" formControlName="sobrenome"></ion-input>
+
+          <ion-input type="text" placeholder="CPF" class="itemList" formControlName="cpf"></ion-input>
+
+        </form>
+
       </ion-list>
-    
+
   </div>
   <footer class="divButton">
       <button ion-button full class="button" (click)="goToCadastroPage()">Voltar</button>
-      <button ion-button full class="button" (click)="goToTabsPage()">Terminar</button>
+      <button ion-button full class="button" (click)="cadastrarPaciente()">Terminar</button>
   </footer>
 </ion-content>
