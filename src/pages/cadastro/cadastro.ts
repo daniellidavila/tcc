@@ -1,14 +1,9 @@
+import { UsersProvider } from './../../providers/users/users';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { LoginPage } from '../login/login';
 import { FinalizarCadastroPage } from '../finalizar-cadastro/finalizar-cadastro';
 
-/**
- * Generated class for the CadastroPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -16,12 +11,29 @@ import { FinalizarCadastroPage } from '../finalizar-cadastro/finalizar-cadastro'
   templateUrl: 'cadastro.html',
 })
 export class CadastroPage {
+  model: User;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, 
+    private toast: ToastController, private userProvider: UsersProvider) {
+
+      this.model = new User();
+      this.model.nome = "Maria";
+      this.model.sobrenome = "Silva";
+      this.model.cpf = "000.000.000-00";
+      this.model.email = "maria@teste.com";
+      this.model.senha = "123";
+      this.model.reSenha = "123";
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad CadastroPage');
+  cadastrarPaciente(){
+    this.userProvider.cadastrarPaciente(this.model.nome, this.model.sobrenome, this.model.cpf, 
+      this.model.email, this.model.senha, this.model.reSenha)
+      .then((result: any) => {
+        this.toast.create({ message: 'Usuário criado com sucesso. Token: ' + result.token, position: 'botton', duration: 3000 }).present();
+      })
+      .catch((error: any) => {
+        this.toast.create({ message: 'Erro ao criar usuário. Erro: ' + error.error, position: 'botton', duration: 3000 }).present();
+      });
   }
 
   goToLoginPage(){
@@ -32,4 +44,13 @@ export class CadastroPage {
     this.navCtrl.push(FinalizarCadastroPage)
   }
 
+}
+
+export class User {
+  nome: String;
+  sobrenome: String;
+  cpf: String;
+  email: String; 
+  senha: String;
+  reSenha: String;
 }

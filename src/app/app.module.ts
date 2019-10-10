@@ -14,6 +14,9 @@ import { FinalizarCadastroPage } from '../pages/finalizar-cadastro/finalizar-cad
 import { AtendimentoPage } from '../pages/atendimento/atendimento';
 import { HistoricoPage } from '../pages/historico/historico';
 import { ConfiguracoesPage } from '../pages/configuracoes/configuracoes';
+import { UsersProvider } from '../providers/users/users';
+
+import { HttpModule } from '@angular/http'
 
 @NgModule({
   declarations: [
@@ -29,7 +32,8 @@ import { ConfiguracoesPage } from '../pages/configuracoes/configuracoes';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    HttpModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -46,7 +50,8 @@ import { ConfiguracoesPage } from '../pages/configuracoes/configuracoes';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    UsersProvider
   ]
 })
 export class AppModule {}
