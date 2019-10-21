@@ -33,6 +33,7 @@ export class UsersProvider {
 interface PayloadCadastroPaciente {
   success: boolean;
   errorList?: Error[]
+  error?: string;
 }
 
 interface Error {

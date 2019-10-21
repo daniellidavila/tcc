@@ -31,6 +31,8 @@ export class FinalizarCadastroPage {
   }
 
   cadastrarPaciente() {
+    console.log(this.cadastroForm.value);
+
     if (this.cadastroForm.valid) {
       this.userProvider.cadastrarPaciente(this.cadastroForm.value)
         .subscribe(data => {
