@@ -8,17 +8,13 @@
 
   <div class="conteiner">
       <img src="assets/imgs/logoHH.png" class="img">
-      <ion-list class="list">
-
-        <form [formGroup]="cadastroForm">
+      <ion-list class="list" [formGroup]="cadastroForm">
 
           <ion-input type="text" placeholder="Nome" class="itemList" formControlName="nome"></ion-input>
 
           <ion-input type="text" placeholder="Sobrenome" class="itemList" formControlName="sobrenome"></ion-input>
 
           <ion-input type="text" placeholder="CPF" class="itemList" formControlName="cpf"></ion-input>
-
-        </form>
 
       </ion-list>
 

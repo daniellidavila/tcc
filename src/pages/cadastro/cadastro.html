@@ -8,8 +8,7 @@
 
   <div class="conteiner">
       <img src="assets/imgs/logoHH.png" class="img">
-      <ion-list class="list">
-        <form [formGroup]="cadastroForm">
+      <ion-list class="list" [formGroup]="cadastroForm">
 
           <ion-input type="email" placeholder="Email" class="itemList" formControlName="email"></ion-input>
 
@@ -17,7 +16,6 @@
 
           <ion-input type="password" placeholder="Confirmação de Senha" class="itemList" formControlName="reSenha"></ion-input>
 
-        </form>
 
       </ion-list>
 
