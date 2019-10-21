@@ -1,3 +1,16 @@
 page-atendimento {
+    .body{
+        background-color: #73A1A5;
+    }
 
+    .principal{
+        display: flex;
+    }
+
+    .topo{
+        border-bottom: solid 3px white;
+        font-size: 30px;
+        height: 40px;
+        color: white;
+    }
 }
