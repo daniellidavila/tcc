@@ -31,6 +31,7 @@ export class UsersProvider {
 // Interface da resposta do back-end
 interface PayloadCadastroPaciente {
   success: boolean;
+  error?: string;
 }
 
 // Interface de dados que deve ser enviado para a função de cadastro
