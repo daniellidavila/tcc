@@ -11,9 +11,22 @@
 </ion-header>
 
 <ion-content class="body">
-  <div class="principal">
-      <div class="topo"><p>Dados Pessoais</p></div>
+  <div class="conteiner">
+      <div class="principal">
+          <div class="topo">Novo Atendimento</div>
+          <ion-input type="text" placeholder="Nome do Atendimento" class="itemList"></ion-input>
+          <ion-input type="text" placeholder="Médico" class="itemList"></ion-input>
+          <ion-input type="text" placeholder="CID" class="itemList"></ion-input>
+          <ion-input type="text" placeholder="Receita" class="itemList"></ion-input>
+          <ion-item class="itemList">
+            <ion-label class="data">Data</ion-label>
+              <ion-datetime displayFormat="DD/MM/YYYY" pickerFormat="DD/MM/YYYY" class="item"></ion-datetime>
+          </ion-item>
+          <ion-textarea placeholder="Diagnóstico" class="textarea"></ion-textarea>
+      </div>
+      <button ion-button block class="button">Salvar</button>
   </div>
+
     
 
 </ion-content>

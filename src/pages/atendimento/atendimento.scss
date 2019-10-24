@@ -3,14 +3,64 @@ page-atendimento {
         background-color: #73A1A5;
     }
 
-    .principal{
+    .conteiner{
         display: flex;
+        flex-direction: column;
+        flex-wrap: wrap; 
+        justify-content: center;
+        align-items: center;
+        margin-top: 20%;
+        width: 100%;
+        
     }
+
+     .principal{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        width: 80%;
+    }
+
 
     .topo{
         border-bottom: solid 3px white;
         font-size: 30px;
         height: 40px;
         color: white;
+    }
+
+    .itemList{
+        margin-top: 5px;
+        color: white;
+        // background-color: red;
+        border-bottom: solid 3px rgba(59, 96, 100, 0.801);
+        background-color: #73A1A5;
+
+        ::placeholder{
+            color: rgba(255, 255, 255, 0.500);
+        }
+    }
+
+    .data{
+        color: rgba(255, 255, 255, 0.500) !important;
+    }
+    
+    .textarea{
+        margin-top: 5px;
+        color: white;
+        // background-color: red;
+        border: solid 3px rgba(59, 96, 100, 0.801);
+        
+        ::placeholder{
+            color: rgba(255, 255, 255, 0.500);
+        }
+    }
+
+    .button{
+        background-color: rgba(59, 96, 100, 0.801);
+        width: 80%;
+        margin-top: 5px;
     }
 }
