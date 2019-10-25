@@ -20,6 +20,7 @@ import { ConfiguracoesPage } from '../pages/configuracoes/configuracoes';
 import { UsersProvider } from '../providers/users/users';
 
 import { SessionProvider } from '../providers/session/session';
+import { EditarDadosPessoaisPage } from '../pages/editar-dados-pessoais/editar-dados-pessoais';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { SessionProvider } from '../providers/session/session';
     FinalizarCadastroPage,
     AtendimentoPage,
     HistoricoPage,
-    ConfiguracoesPage
+    ConfiguracoesPage,
+    EditarDadosPessoaisPage
   ],
   imports: [
     BrowserModule,
@@ -49,7 +51,8 @@ import { SessionProvider } from '../providers/session/session';
     FinalizarCadastroPage,
     AtendimentoPage,
     HistoricoPage,
-    ConfiguracoesPage
+    ConfiguracoesPage,
+    EditarDadosPessoaisPage
   ],
   providers: [
     StatusBar,

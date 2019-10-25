@@ -40,7 +40,7 @@ export class LoginPage {
           // salva o token no localstorage para ser usado depois
           localStorage.setItem('token', data._token);
           // navega para a tabspage
-          this.navCtrl.push(TabsPage)
+          this.navCtrl.setRoot(TabsPage)
         }
       },
       // se houver um erro ele apresenta esse toast na tela
