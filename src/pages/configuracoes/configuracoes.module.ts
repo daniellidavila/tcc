@@ -10,4 +10,5 @@ import { ConfiguracoesPage } from './configuracoes';
     IonicPageModule.forChild(ConfiguracoesPage),
   ],
 })
-export class ConfiguracoesPageModule {}
+export class ConfiguracoesPageModule {
+}

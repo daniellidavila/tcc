@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { MedicoPage } from '../medico/medico';
 
 /**
- * Generated class for the ConfiguracoesPage page.
+ * Generated class for the MedicoPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -11,16 +10,16 @@ import { MedicoPage } from '../medico/medico';
 
 @IonicPage()
 @Component({
-  selector: 'page-configuracoes',
-  templateUrl: 'configuracoes.html',
+  selector: 'page-medico',
+  templateUrl: 'medico.html',
 })
-export class ConfiguracoesPage {
+export class MedicoPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
-  goToMedicoPage(){
-    this.navCtrl.push(MedicoPage)
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad MedicoPage');
   }
 
 }
