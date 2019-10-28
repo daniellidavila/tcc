@@ -1,3 +1,31 @@
 page-configuracoes {
 
+    .body{
+        background-color: #73A1A5;
+    }
+
+    .topo{
+        border-bottom: solid 3px white;
+        font-size: 30px;
+        height: 40px;
+        color: white;
+        text-align: center;
+        width: 80%;
+        margin-left: 10%;
+        margin-top: 15px;
+    }
+
+    .conteiner{
+        margin-top: 30px;
+    }
+
+    .item{
+        width: 90%;
+        color: white;
+        font-size: 20px;
+        padding-bottom: 5px;
+        margin-top: 15px;
+        margin-left: 5%;
+        border-bottom: solid 3px rgba(59, 96, 100, 0.801);
+    }
 }
