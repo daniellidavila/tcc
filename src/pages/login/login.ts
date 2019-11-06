@@ -38,7 +38,7 @@ export class LoginPage {
         // verifica se a requisição foi um sucesso
         if (data.success) {
           // salva o token no localstorage para ser usado depois
-          localStorage.setItem('token', data._token);
+          localStorage.setItem('token', data.token);
           // navega para a tabspage
           this.navCtrl.setRoot(TabsPage)
         }

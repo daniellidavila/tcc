@@ -28,6 +28,25 @@ export class UsersProvider {
       finalize<PayloadCadastroPaciente>(() => load.dismiss())
     )
   }
+
+  getDetalhes(){
+    // Cria um Loading
+    const load = this.load.create({
+      content: 'Aguarde...'
+    })
+    // Manda o Loading ser apresentado na tela
+    load.present();
+    // Faz a requisição para o back-end
+    return this.http.get(`${this.BASE_URL}/paciente`, {
+      headers: {
+        token: localStorage.getItem('token')
+      }
+    })
+    .pipe<PayloadGetPaciente>(
+      // quando finaliza a requisição ele manda o Loading fechar
+      finalize<PayloadGetPaciente>(() => load.dismiss())
+    )
+  }
 }
 // Interface da resposta do back-end
 interface PayloadCadastroPaciente {
@@ -39,6 +58,30 @@ interface PayloadCadastroPaciente {
 interface Error {
   field: string;
   msg: string;
+}
+
+export interface PayloadGetPaciente {
+  success: boolean;
+  error?: string;
+  paciente: {
+    nome: string
+    nascimento: Date
+    sexo: string
+    cpf: string
+    email: string
+    cns: string
+    nomeMae: string
+    nomePai: string
+    celular: string
+    crm: string
+    expecialidade: string
+    telEmergencia: string
+    tpoSanguineo: string
+    medicamentos: []
+    alAlimentos: []
+    doencaCronica: []
+    condEspecial: []
+  };
 }
 
 // Interface de dados que deve ser enviado para a função de cadastro

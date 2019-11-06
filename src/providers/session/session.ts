@@ -33,7 +33,7 @@ export class SessionProvider {
 // Interface da resposta do back-end
 interface PayloadLogin {
   success: boolean;
-  _token?: string
+  token?: string
 }
 
 // Interface de dados que deve ser enviado para a função de login
