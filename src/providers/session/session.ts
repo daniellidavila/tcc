@@ -5,7 +5,7 @@ import { LoadingController } from 'ionic-angular';
 
 @Injectable()
 export class SessionProvider {
-  private BASE_URL = 'https://api-tcc-dani.herokuapp.com';
+  private BASE_URL = 'http://localhost:3001';
 
   constructor(
     private http: HttpClient,
@@ -31,7 +31,7 @@ export class SessionProvider {
 // Interface da resposta do back-end
 interface PayloadLogin {
   success: boolean;
-  _token?: string
+  token?: string
 }
 
 // Interface de dados que deve ser enviado para a função de login

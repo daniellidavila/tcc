@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { EditarDadosPessoaisPage } from '../editar-dados-pessoais/editar-dados-pessoais';
+import { UsersProvider, PayloadGetPaciente } from '../../providers/users/users';
+
 
 /**
  * Generated class for the DadosPessoaisPage page.
@@ -16,7 +18,16 @@ import { EditarDadosPessoaisPage } from '../editar-dados-pessoais/editar-dados-p
 })
 export class DadosPessoaisPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  usuario = {}
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public userSrv: UsersProvider) {
+  }
+
+  ionViewDidLoad (){
+    this.userSrv.getDetalhes().subscribe(data => {
+      console.log(data)
+      this.usuario = data.paciente
+    })
   }
 
   goToEditarDadosPessoaisPage(){

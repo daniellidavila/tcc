@@ -17,47 +17,47 @@
       
       <div class="list">
         <span class="itemLabel">Nome:</span>
-        <span class="itemList">João</span>
+        <span class="itemList">{{usuario.nome}}</span>
       </div>
       
-      <div class="list">
+      <!-- <div class="list">
         <span class="itemLabel">Sobrenome:</span>
-        <span class="itemList">Silva</span>
-      </div>
+        <span class="itemList">{{usuario.sobrenome}}</span>
+      </div> -->
       
       <div class="list">
         <span class="itemLabel">Gênero:</span>
-        <span class="itemList">Masculino</span>
+        <span class="itemList">{{usuario.sexo}}</span>
       </div>
       
       <div class="list">
         <span class="itemLabel">Email:</span>
-        <span class="itemList">joao@teste</span>
+        <span class="itemList">{{usuario.email}}</span>
       </div>
       
       <div class="list">
         <span class="itemLabel">CPF:</span>
-        <span class="itemList">27550514003</span>
+        <span class="itemList">{{usuario.cpf}}</span>
       </div>
       
       <div class="list">
         <span class="itemLabel">Nome da Mãe:</span>
-        <span class="itemList">Maria Silva</span>
+        <span class="itemList">{{usuario.nomeMae}}</span>
       </div>
 
       <div class="list">
         <span class="itemLabel">Nome do Pai:</span>
-        <span class="itemList">José Silva</span>
+        <span class="itemList">{{usuario.nomePai}}</span>
       </div>
 
       <div class="list">
         <span class="itemLabel">Data de Nascimento:</span>
-        <span class="itemList">19/05/1972</span>
+        <span class="itemList">{{usuario.nascimento}}</span>
       </div>
 
       <div class="list">
         <span class="itemLabel">Contato:</span>
-        <span class="itemList">(51)999999999</span>
+        <span class="itemList">{{usuario.celular}}</span>
       </div>
 
     </ion-slide>
@@ -67,32 +67,32 @@
       <div class="topo"> <p>Dados de Emergência</p> </div>
       <div class="list">
         <span class="itemLabel">Contato de Emergência:</span>
-        <span class="itemList">(51)998888888</span>
+        <span class="itemList">{{usuario.telEmergencia}}</span>
       </div>
       
       <div class="list">
         <span class="itemLabel">Alérgico à Medicação:</span>
-        <span class="itemList">Não</span>
+        <span class="itemList">{{usuario.medicacao}}</span>
       </div>
       
       <div class="list">
         <span class="itemLabel">Alérgico ao Alimento:</span>
-        <span class="itemList">Leite</span>
+        <span class="itemList">{{usuario.alAlimento}}</span>
       </div>
       
       <div class="list">
         <span class="itemLabel">Condição Especial:</span>
-        <span class="itemList">Rinite Crônica</span>
+        <span class="itemList">{{usuario.condEspecial}}</span>
       </div>
       
       <div class="list">
         <span class="itemLabel">Tipo Sanguíneo:</span>
-        <span class="itemList">O+</span>
+        <span class="itemList">{{usuario.tpoSanguineo}}</span>
       </div>
 
       <div class="list">
         <span class="itemLabel">CNS:</span>
-        <span class="itemList">722855216668949</span>
+        <span class="itemList">{{usuario.cns}}</span>
       </div>
       <div class="flexButton">
         <button ion-button icon-only class="button" (click)="goToEditarDadosPessoaisPage()">
