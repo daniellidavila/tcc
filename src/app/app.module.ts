@@ -22,6 +22,7 @@ import { UsersProvider } from '../providers/users/users';
 import { SessionProvider } from '../providers/session/session';
 import { EditarDadosPessoaisPage } from '../pages/editar-dados-pessoais/editar-dados-pessoais';
 import { MedicoPage } from '../pages/medico/medico';
+import { ComponentsModule } from '../components/components.module';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { MedicoPage } from '../pages/medico/medico';
     BrowserModule,
     IonicModule.forRoot(MyApp),
     HttpClientModule,
-    BrMaskerModule
+    BrMaskerModule,
+    ComponentsModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
