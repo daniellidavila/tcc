@@ -5,7 +5,8 @@ import { LoadingController } from 'ionic-angular';
 
 @Injectable()
 export class SessionProvider {
-  private BASE_URL = 'http://localhost:3001';
+  // private BASE_URL = 'http://localhost:3001';
+  private BASE_URL = 'https://api-tcc-dani.herokuapp.com'
 
   constructor(
     private http: HttpClient,
