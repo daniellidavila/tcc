@@ -71,10 +71,9 @@ export interface PayloadGetPaciente {
     expecialidade: string
     telEmergencia: string
     tpoSanguineo: string
-    medicamentos: []
-    alAlimentos: []
-    doencaCronica: []
-    condEspecial: []
+    medicamentos: any[]
+    alAlimentos: any[]
+    condEspecial: any[]
   };
 }
 
