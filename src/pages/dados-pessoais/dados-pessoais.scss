@@ -1,7 +1,8 @@
 page-dados-pessoais {
-    // .slide{
-    //     background-color: #3B6064;
-    // }
+    ion-slides{
+        // background-color: #3B6064;
+        height: auto !important;
+    }
 
     .body{
         background-color: #73A1A5;
@@ -12,7 +13,6 @@ page-dados-pessoais {
         font-size: 30px;
         height: 40px;
         color: white;
-        margin-top: -40px;
     }
 
     .list{
@@ -22,7 +22,7 @@ page-dados-pessoais {
         flex-wrap: wrap;
         align-items: center;
         background-color: rgba(59, 96, 100, 0.1);
-        
+
     }
 
     .itemList{
@@ -67,7 +67,7 @@ page-dados-pessoais {
         height: 60px;
         background-color: #3B6064;
         margin-top: 20px;
-        
+
     }
 
 

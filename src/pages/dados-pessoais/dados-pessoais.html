@@ -8,32 +8,32 @@
   <ion-slides pager>
     <ion-slide class="slide">
       <div class="topo"> <p>Dados Pessoais</p> </div>
-      
+
       <div class="list">
         <span class="itemLabel">Nome:</span>
         <span class="itemList">{{usuario.nome}}</span>
       </div>
-      
-      <!-- <div class="list">
+
+      <div class="list">
         <span class="itemLabel">Sobrenome:</span>
         <span class="itemList">{{usuario.sobrenome}}</span>
-      </div> -->
-      
+      </div>
+
       <div class="list">
         <span class="itemLabel">Gênero:</span>
         <span class="itemList">{{usuario.sexo}}</span>
       </div>
-      
+
       <div class="list">
         <span class="itemLabel">Email:</span>
         <span class="itemList">{{usuario.email}}</span>
       </div>
-      
+
       <div class="list">
         <span class="itemLabel">CPF:</span>
         <span class="itemList">{{usuario.cpf}}</span>
       </div>
-      
+
       <div class="list">
         <span class="itemLabel">Nome da Mãe:</span>
         <span class="itemList">{{usuario.nomeMae}}</span>
@@ -63,24 +63,24 @@
         <span class="itemLabel">Contato de Emergência:</span>
         <span class="itemList">{{usuario.telEmergencia}}</span>
       </div>
-      
+
       <div class="list">
         <span class="itemLabel">Alérgico à Medicação:</span>
         <span class="itemList">{{usuario.medicacao}}</span>
       </div>
 
       <list-view title="Titulo de teste"></list-view>
-      
+
       <div class="list">
         <span class="itemLabel">Alérgico ao Alimento:</span>
         <span class="itemList">{{usuario.alAlimento}}</span>
       </div>
-      
+
       <div class="list">
         <span class="itemLabel">Condição Especial:</span>
         <span class="itemList">{{usuario.condEspecial}}</span>
       </div>
-      
+
       <div class="list">
         <span class="itemLabel">Tipo Sanguíneo:</span>
         <span class="itemList">{{usuario.tpoSanguineo}}</span>
@@ -90,13 +90,13 @@
         <span class="itemLabel">CNS:</span>
         <span class="itemList">{{usuario.cns}}</span>
       </div>
-      <div class="flexButton">
-        <button ion-button icon-only class="button" (click)="goToEditarDadosPessoaisPage()">
-          <ion-icon name="create"></ion-icon>
-        </button>
-      </div>
-      
-      
+
+
     </ion-slide>
   </ion-slides>
+  <div class="flexButton">
+    <button ion-button icon-only class="button" (click)="goToEditarDadosPessoaisPage()">
+      <ion-icon name="create"></ion-icon>
+    </button>
+  </div>
 </ion-content>
