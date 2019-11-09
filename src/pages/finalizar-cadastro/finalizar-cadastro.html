@@ -14,13 +14,13 @@
 
           <ion-input type="text" placeholder="Sobrenome" class="itemList" formControlName="sobrenome"></ion-input>
 
-          <ion-input type="text" placeholder="CPF" class="itemList" formControlName="cpf"></ion-input>
+          <ion-input type="text" placeholder="CPF" [brmasker]="{mask:'000.000.000-00', len:14, type: 'num'}" class="itemList" formControlName="cpf"></ion-input>
 
       </ion-list>
 
   </div>
   <footer class="divButton">
       <button ion-button full class="button" (click)="goToCadastroPage()">Voltar</button>
-      <button ion-button full class="button" (click)="cadastrarPaciente()">Terminar</button>
+      <button ion-button full class="button" [disabled]="stateBtn" (click)="cadastrarPaciente()">Terminar</button>
   </footer>
 </ion-content>

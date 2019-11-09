@@ -44,9 +44,14 @@ export class LoginPage {
         }
       },
       // se houver um erro ele apresenta esse toast na tela
-      (err) => {
+      (e) => {
+        let msg = 'Erro ao logar'
+        const { error } = e.error;
+        if (typeof error === 'string' && error === 'usuario.ou.senha.incorreta') {
+          msg = 'Usuário ou senha incorreta'
+        }
         this.toast.create({
-          message: 'Erro ao logar',
+          message: msg,
           position: 'botton',
           duration: 3000
         }).present();

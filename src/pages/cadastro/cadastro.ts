@@ -1,9 +1,9 @@
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { UsersProvider } from './../../providers/users/users';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { LoginPage } from '../login/login';
 import { FinalizarCadastroPage } from '../finalizar-cadastro/finalizar-cadastro';
+import { CustomValidators } from '../../core/CustomValidators';
 
 
 @IonicPage()
@@ -17,7 +17,7 @@ export class CadastroPage {
     email: new FormControl(null, [Validators.required, Validators.email]),
     senha: new FormControl(null, Validators.required),
     reSenha: new FormControl(null, Validators.required),
-  })
+  }, { validators: (e) => CustomValidators.EqualPasswords(e, 'senha', 'reSenha') })
 
   constructor(
     public navCtrl: NavController,
@@ -40,6 +40,10 @@ export class CadastroPage {
         duration: 3000
       }).present();
     }
+  }
+
+  get stateBtn() {
+    return !this.cadastroForm.valid
   }
 
 }

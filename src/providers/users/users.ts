@@ -3,10 +3,11 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { finalize } from 'rxjs/operators';
 
+import variaveis from '../../assets/config/variaveis'
 
 @Injectable()
 export class UsersProvider {
-  private BASE_URL = 'https://api-tcc-dani.herokuapp.com'
+  private BASE_URL = variaveis.apiBaseUrl;
 
   constructor(
     private http: HttpClient,
@@ -31,6 +32,12 @@ export class UsersProvider {
 // Interface da resposta do back-end
 interface PayloadCadastroPaciente {
   success: boolean;
+  errorList?: Error[]
+}
+
+interface Error {
+  field: string;
+  msg: string;
 }
 
 // Interface de dados que deve ser enviado para a função de cadastro

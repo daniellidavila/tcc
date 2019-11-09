@@ -22,7 +22,7 @@
   </div>
   <footer class="divButton">
       <button ion-button full class="button" (click)="goToLoginPage()">Voltar</button>
-      <button ion-button full class="button" (click)="goToFinalizarCadastroPage()">Continuar</button>
+      <button ion-button full class="button" [disabled]="stateBtn" (click)="goToFinalizarCadastroPage()">Continuar</button>
   </footer>
 
 </ion-content>

@@ -41,6 +41,23 @@ export class FinalizarCadastroPage {
               duration: 3000
             }).present();
             this.navCtrl.setRoot(LoginPage)
+          } else {
+            console.log(data);
+            if (data.errorList && data.errorList[0].field === 'cpf') {
+              if (data.errorList[0].msg === 'cpf.invalido') {
+                this.toast.create({
+                  message: `Cpf inválido`,
+                  position: 'botton',
+                  duration: 3000
+                }).present();
+              } else if (data.errorList[0].msg === 'cpf.ja.cadastrado') {
+                this.toast.create({
+                  message: `Cpf já cadastraddo`,
+                  position: 'botton',
+                  duration: 3000
+                }).present();
+              }
+            }
           }
         },
           err => {
@@ -71,6 +88,10 @@ export class FinalizarCadastroPage {
     Object.keys(data).forEach(key => {
       this.cadastroForm.get(key).setValue(data[key]);
     })
+  }
+
+  get stateBtn() {
+    return !this.cadastroForm.valid
   }
 
 }

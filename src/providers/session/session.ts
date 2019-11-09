@@ -3,9 +3,11 @@ import { Injectable } from '@angular/core';
 import { finalize } from 'rxjs/operators'
 import { LoadingController } from 'ionic-angular';
 
+import variaveis from '../../assets/config/variaveis'
+
 @Injectable()
 export class SessionProvider {
-  private BASE_URL = 'https://api-tcc-dani.herokuapp.com';
+  private BASE_URL = variaveis.apiBaseUrl;
 
   constructor(
     private http: HttpClient,
