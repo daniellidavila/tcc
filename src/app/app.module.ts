@@ -25,6 +25,7 @@ import { SessionProvider } from '../providers/session/session';
 import { EditarDadosPessoaisPage } from '../pages/editar-dados-pessoais/editar-dados-pessoais';
 import { MedicoPage } from '../pages/medico/medico';
 import { ComponentsModule } from '../components/components.module';
+import { AtendimentoProvider } from '../providers/atendimento/atendimento';
 
 @NgModule({
   declarations: [
@@ -67,7 +68,8 @@ import { ComponentsModule } from '../components/components.module';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     UsersProvider,
-    SessionProvider
+    SessionProvider,
+    AtendimentoProvider
   ]
 })
 export class AppModule {}

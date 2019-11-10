@@ -1,9 +1,3 @@
-<!--
-  Generated template for the AtendimentoPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
   <!-- <ion-navbar>
     <ion-title>atendimento</ion-title>
@@ -11,23 +5,22 @@
 </ion-header>
 
 <ion-content class="body">
-  <div class="conteiner">
+  <form class="conteiner" [formGroup]="atendimentoForm" (ngSubmit)="teste()">
       <div class="principal">
           <div class="topo">Novo Atendimento</div>
-          <ion-input type="text" placeholder="Nome do Atendimento" class="itemList"></ion-input>
-          <ion-input type="text" placeholder="Médico" class="itemList"></ion-input>
-          <ion-input type="text" placeholder="CID" class="itemList"></ion-input>
-          <ion-input type="text" placeholder="Dosagem" class="itemList"></ion-input>
-          <ion-input type="text" placeholder="Medicamento" class="itemList"></ion-input>
+          <ion-input type="text" formControlName="nome" placeholder="Nome do Atendimento" class="itemList"></ion-input>
+          <ion-input type="text" formControlName="medico" placeholder="Médico" class="itemList"></ion-input>
+          <ion-select formControlName="cid" class="textarea" placeholder="CID">
+            <ion-option *ngFor="let cid of listaDoenca" [value]="cid.value">{{cid.label}}</ion-option>
+          </ion-select>
+          <ion-input type="text" formControlName="receita" placeholder="Dosagem" class="itemList"></ion-input>
+          <ion-input type="text" formControlName="medicamento" placeholder="Medicamento" class="itemList"></ion-input>
           <ion-item class="itemList">
             <ion-label class="data">Data</ion-label>
-              <ion-datetime displayFormat="DD/MM/YYYY" pickerFormat="DD/MM/YYYY" class="item"></ion-datetime>
+              <ion-datetime formControlName="data" displayFormat="DD/MM/YYYY" pickerFormat="DD/MM/YYYY" class="item"></ion-datetime>
           </ion-item>
-          <ion-textarea placeholder="Diagnóstico" class="textarea"></ion-textarea>
+          <ion-textarea formControlName="diagnostico" placeholder="Diagnóstico" class="textarea"></ion-textarea>
       </div>
-      <button ion-button block class="button">Salvar</button>
-  </div>
-
-    
-
+      <button type="submit" ion-button block class="button">Salvar</button>
+    </form>
 </ion-content>

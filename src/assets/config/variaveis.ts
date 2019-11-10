@@ -1,4 +1,5 @@
 const variaveis = {
-  apiBaseUrl: 'http://localhost:3001'
+  apiBaseUrl: 'http://api-tcc-dani.herokuapp.com'
+  // apiBaseUrl: 'http://localhost:3001'
 }
 export default variaveis;
