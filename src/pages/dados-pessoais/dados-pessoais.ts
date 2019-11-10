@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { IonicPage, NavController, NavParams, Slides } from 'ionic-angular';
 import { EditarDadosPessoaisPage } from '../editar-dados-pessoais/editar-dados-pessoais';
 import { UsersProvider } from '../../providers/users/users';
 
@@ -9,8 +9,11 @@ import { UsersProvider } from '../../providers/users/users';
   templateUrl: 'dados-pessoais.html',
 })
 export class DadosPessoaisPage {
+  @ViewChild(Slides)slides: Slides;
 
   usuario = {}
+
+  list = []
 
   constructor(
     public navCtrl: NavController,
@@ -22,7 +25,19 @@ export class DadosPessoaisPage {
   ionViewDidLoad (){
     this.userSrv.getDetalhes().subscribe(data => {
       this.usuario = data.paciente
+      this.list = [
+        'Teste',
+        'Teste',
+        'Teste',
+        'Teste',
+        'Teste',
+        'Teste',
+        'Teste',
+        'Teste',
+        'Teste'
+      ]
     })
+    this.slides.spaceBetween = 16
   }
 
   goToEditarDadosPessoaisPage(){

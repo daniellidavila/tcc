@@ -1,5 +1,24 @@
-list{
+list-view{
   #container{
-    
+    background-color: #6d9b9e;
+    height: 32px;
+    overflow: hidden;
+
+    label{
+      height: 32px;
+      display: flex;
+      padding-right: 4px;
+      padding-left: 4px;
+      justify-content: space-between;
+      align-items: center;
+
+      input[type="checkbox"]{
+        display: none;
+      }
+
+      div{
+        color: white;
+      }
+    }
   }
 }
