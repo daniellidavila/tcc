@@ -5,22 +5,31 @@
 </ion-header>
 
 <ion-content class="body">
-  <form class="conteiner" [formGroup]="atendimentoForm" (ngSubmit)="teste()">
+  <form class="conteiner" [formGroup]="atendimentoForm" (ngSubmit)="cadastrarAtendimento()">
       <div class="principal">
           <div class="topo">Novo Atendimento</div>
+
           <ion-input type="text" formControlName="nome" placeholder="Nome do Atendimento" class="itemList"></ion-input>
+
           <ion-input type="text" formControlName="medico" placeholder="Médico" class="itemList"></ion-input>
+
           <ion-select formControlName="cid" class="textarea" placeholder="CID">
             <ion-option *ngFor="let cid of listaDoenca" [value]="cid.value">{{cid.label}}</ion-option>
           </ion-select>
-          <ion-input type="text" formControlName="receita" placeholder="Dosagem" class="itemList"></ion-input>
-          <ion-input type="text" formControlName="medicamento" placeholder="Medicamento" class="itemList"></ion-input>
+
+          <ion-input type="text" formControlName="dosagem" placeholder="Dosagem" class="itemList"></ion-input>
+
+          <ion-select formControlName="medicamento" class="textarea" placeholder="Medicamento">
+            <ion-option *ngFor="let medicamento of listaMedicamento" [value]="medicamento.value">{{medicamento.label}}</ion-option>
+          </ion-select>
+
           <ion-item class="itemList">
             <ion-label class="data">Data</ion-label>
               <ion-datetime formControlName="data" displayFormat="DD/MM/YYYY" pickerFormat="DD/MM/YYYY" class="item"></ion-datetime>
           </ion-item>
+
           <ion-textarea formControlName="diagnostico" placeholder="Diagnóstico" class="textarea"></ion-textarea>
       </div>
-      <button type="submit" ion-button block class="button">Salvar</button>
+      <button type="submit" [disabled]="stateBtn" ion-button block class="button">Salvar</button>
     </form>
 </ion-content>
