@@ -4,9 +4,29 @@ page-historico {
     }
 
     .topo{
+        width: min-content;
         border-bottom: solid 3px white;
         font-size: 30px;
         height: 40px;
+        color: white;
+        margin: auto;
+        margin-TOP: 32px;
+        margin-bottom: 48px;
+    }
+
+    input{
+        height: 32px;
+        border: none;
+        margin-left: 24px;
+        width: calc(100% - 48px);
+        padding-left: 12px;
+        background-color: rgba(153, 186, 189, 0.8);
+        margin-bottom: 40px;
+        color: #ffffff;
+    }
+
+    input::placeholder{
+        opacity: .6;
         color: white;
     }
 }

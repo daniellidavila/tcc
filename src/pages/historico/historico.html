@@ -1,9 +1,3 @@
-<!--
-  Generated template for the HistoricoPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
   <!-- <ion-navbar>
     <ion-title>historico</ion-title>
@@ -12,10 +6,9 @@
 
 <ion-content class="body">
     <div class="topo">Histórico</div>
-    <ion-list>
-        <button ion-item *ngFor="let item of items" (click)="itemSelected(item)">
-          {{ item }}
-        </button>  
-      </ion-list>
+
+    <input class="input" (input)="filterAtendimento()" [(ngModel)]="filter" type="text" placeholder="Filtro">
+
+    <atendimento-list *ngFor="let atendimento of atendimentosFiltrados" [atendimento]="atendimento"></atendimento-list>
 
 </ion-content>

@@ -40,11 +40,18 @@ page-atendimento {
         ::placeholder{
             color: rgba(255, 255, 255, 0.500);
         }
+    }
+
+    ion-item.item-datetime{
+        padding: 0 !important;
+        padding-left: 12px !important;
 
         .item-inner{
-            border: none;
+            border: none !important;
+            height: 42px !important;
         }
     }
+
 
     .datetime{
         width: 70%;

@@ -1,0 +1,67 @@
+atendimento-list {
+  #container{
+    background-color: #99BABD;
+    height: 32px;
+    overflow: hidden;
+    margin-bottom: 12px;
+    border-radius: 5px;
+    transition: .2s;
+  
+    label{
+      height: 32px;
+      display: flex;
+      padding-right: 32px;
+      padding-left: 32px;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      border-bottom: 1px solid transparent;
+
+      svg{
+        transition: .3s;
+      }
+      
+      input[type="checkbox"]{
+        display: none;
+      }
+
+      input[type="checkbox"]:checked ~ svg{
+        transform: rotate(180deg);
+      }
+      
+      div{
+        color: white;
+        font-size: 20px;
+      }
+    }
+
+    .wrapper-content{
+      width: 100% !important;
+    }
+
+    .content{
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.6);
+      padding-right: 32px;
+      padding-left: 32px;
+    }
+  }
+
+  .close{
+    background-color: transparent !important;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    
+    label{
+      border-bottom: 1px solid white !important;
+      width: calc(100% - 64px) !important;
+      padding: 2px 0px 3px 0px !important;
+      transition: .2s;
+    }
+  }
+}

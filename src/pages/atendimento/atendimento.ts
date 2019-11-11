@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AtendimentoProvider } from '../../providers/atendimento/atendimento';
 
@@ -25,7 +25,8 @@ export class AtendimentoPage {
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    private atendimentoProvider: AtendimentoProvider
+    private atendimentoProvider: AtendimentoProvider,
+    private toast: ToastController
     ) {
   }
 
@@ -45,12 +46,27 @@ export class AtendimentoPage {
       .subscribe(data => {
         if (data.success) {
           this.atendimentoForm.reset();
+          this.toast.create({
+            message: 'Atendimento cadastrado com sucesso!',
+            position: 'botton',
+            duration: 3000
+          }).present();
         }
         else {
+          this.toast.create({
+            message: 'Ocorreu um erro. Tente novamente mais tarde!',
+            position: 'botton',
+            duration: 3000
+          }).present();
           console.log(data);
         }
       },
       err => {
+        this.toast.create({
+          message: 'Ocorreu um erro. Tente novamente mais tarde!',
+          position: 'botton',
+          duration: 3000
+        }).present();
         console.log(err);
       })
     }

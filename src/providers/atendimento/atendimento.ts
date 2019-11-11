@@ -28,6 +28,21 @@ export class AtendimentoProvider {
       )
     }
 
+    getAtendimentos(){
+      const load = this.load.create({
+        content: 'Aguarde...'
+      })
+      load.present();
+      return this.http.get(`${this.BASE_URL}/atendimento`, {
+        headers: {
+          token: localStorage.getItem('token')
+        }
+      })
+      .pipe<PayloadGetAtendimentos>(
+        finalize<PayloadGetAtendimentos>(() => load.dismiss())
+      )
+    }
+
     postAtendimento(form: AtendimentoForm){
       const load = this.load.create({
         content: 'Aguarde...'
@@ -53,13 +68,21 @@ interface PayloadGetDoencas {
   }
   error: Error;
 }
+interface PayloadGetAtendimentos {
+  success: boolean;
+  atendimentos: Atendimento[]
+  error: Error;
+}
+
+export interface Atendimento {
+  nome: string;
+  medico: string;
+  data: Date;
+  cid: string
+}
 
 interface PayloadAtendimento {
   success: boolean;
-  combo: {
-    doencas: Combo[],
-    medicamentos: Combo[],
-  }
   error: Error;
 }
 

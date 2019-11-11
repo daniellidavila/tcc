@@ -2,12 +2,15 @@ import { NgModule } from '@angular/core';
 import { ListViewComponent } from './list/list-view';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { AtendimentoListComponent } from './atendimento-list/atendimento-list';
 @NgModule({
-	declarations: [ListViewComponent],
+	declarations: [ListViewComponent,
+    AtendimentoListComponent],
 	imports: [
 		FormsModule,
 		BrowserModule
 	],
-	exports: [ListViewComponent]
+	exports: [ListViewComponent,
+    AtendimentoListComponent]
 })
 export class ComponentsModule {}

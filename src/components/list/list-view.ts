@@ -44,7 +44,6 @@ export class ListViewComponent implements OnInit, OnChanges {
     setTimeout(() => {
       const element = this.container.nativeElement;
       this.height = `${element.clientHeight + 32}px`
-      console.log({element});
     }, 0)
   }
 
