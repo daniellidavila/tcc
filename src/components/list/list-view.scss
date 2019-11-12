@@ -16,8 +16,16 @@ list-view{
         display: none;
       }
 
+      input[type="checkbox"]:checked ~ svg{
+        transform: rotate(180deg);
+      }
+
       div{
         color: white;
+      }
+
+      svg{
+        transition: .3s;
       }
     }
   }

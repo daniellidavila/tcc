@@ -69,7 +69,7 @@ import { AtendimentoProvider } from '../providers/atendimento/atendimento';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     UsersProvider,
     SessionProvider,
-    AtendimentoProvider
+    AtendimentoProvider,
   ]
 })
 export class AppModule {}

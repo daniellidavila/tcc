@@ -1,12 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the EditarDadosPessoaisPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { FormGroup, FormControl } from '@angular/forms';
+import { UsersProvider } from '../../providers/users/users';
 
 @IonicPage()
 @Component({
@@ -14,12 +9,57 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'editar-dados-pessoais.html',
 })
 export class EditarDadosPessoaisPage {
+  editForm: FormGroup = new FormGroup({
+    nome: new FormControl(null),
+    sobrenome: new FormControl(null),
+    genero: new FormControl(null),
+    email: new FormControl(null),
+    cpf: new FormControl(null),
+    cns: new FormControl(null),
+    nomeMae: new FormControl(null),
+    nomePai: new FormControl(null),
+    dataNascimento: new FormControl(null),
+    celular: new FormControl(null),
+    telEmergencia: new FormControl(null),
+    tpoSanguineo: new FormControl(null),
+    condEspecial: new FormControl(null),
+    medicamentos: new FormControl(null),
+    alAlimentos: new FormControl(null),
+  })
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  listaMedicamentos = [];
+  listaAlimentos = [];
+  listaCondicao = [];
+
+  paciente = {};
+
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    private userProvider: UsersProvider
+    ) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad EditarDadosPessoaisPage');
   }
+
+  ionViewDidEnter() {
+    this.userProvider.getComboOptions()
+    .subscribe(data => {
+      for (let i = 0; i < 100; i++) {
+        this.listaMedicamentos.push(data.combo.medicamentos[i])
+      }
+      this.listaCondicao = data.combo.condicao;
+      this.listaAlimentos = data.combo.alimentos;
+      this.paciente = data.paciente;
+      this.setDefaultValuesForm();
+    })
+  }
+
+  setDefaultValuesForm() {
+    console.log(this.paciente);
+  }
+
+
 
 }

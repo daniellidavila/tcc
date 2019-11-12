@@ -47,12 +47,46 @@ export class UsersProvider {
       finalize<PayloadGetPaciente>(() => load.dismiss())
     )
   }
+
+  getComboOptions(){
+    // Cria um Loading
+    const load = this.load.create({
+      content: 'Aguarde...'
+    })
+    // Manda o Loading ser apresentado na tela
+    load.present();
+    // Faz a requisição para o back-end
+    return this.http.get(`${this.BASE_URL}/paciente/combo`, {
+      headers: {
+        token: localStorage.getItem('token')
+      }
+    })
+    .pipe<PayloadGetCombo>(
+      // quando finaliza a requisição ele manda o Loading fechar
+      finalize<PayloadGetCombo>(() => load.dismiss())
+    )
+  }
 }
 // Interface da resposta do back-end
 interface PayloadCadastroPaciente {
   success: boolean;
   errorList?: Error[]
   error?: string;
+}
+
+interface PayloadGetCombo {
+  success: boolean;
+  combo: {
+    medicamentos: Combo[],
+    alimentos: Combo[],
+    condicao: Combo[],
+  }
+  paciente: Paciente;
+}
+
+interface Combo {
+  label: string;
+  value?: string;
 }
 
 interface Error {
@@ -63,25 +97,27 @@ interface Error {
 export interface PayloadGetPaciente {
   success: boolean;
   error?: string;
-  paciente: {
-    nome: string
-    nascimento: Date
-    sexo: string
-    cpf: string
-    email: string
-    cns: string
-    nomeMae: string
-    nomePai: string
-    celular: string
-    crm: string
-    expecialidade: string
-    telEmergencia: string
-    tpoSanguineo: string
-    medicamentos: any[]
-    alAlimentos: any[]
-    condEspecial: any[]
-  };
+  paciente: Paciente;
 }
+
+interface Paciente {
+  nome: string
+  nascimento: Date
+  sexo: string
+  cpf: string
+  email: string
+  cns: string
+  nomeMae: string
+  nomePai: string
+  celular: string
+  crm: string
+  expecialidade: string
+  telEmergencia: string
+  tpoSanguineo: string
+  medicamentos: any[]
+  alAlimentos: any[]
+  condEspecial: any[]
+};
 
 // Interface de dados que deve ser enviado para a função de cadastro
 interface PacienteCadastro {

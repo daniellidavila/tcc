@@ -1,9 +1,3 @@
-<!--
-  Generated template for the EditarDadosPessoaisPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
   <!-- <ion-navbar>
     <ion-title>editarDadosPessoais</ion-title>
@@ -12,86 +6,115 @@
 
 <ion-content class="body">
   <div class="conteiner">
-    <div class="principal">
+    <form class="principal" [formGroup]="editForm">
         <div class="topo">Editar Dados Pessoais</div>
-      
+
         <div class="list">
           <span class="itemLabel">Nome:</span>
-          <span class="itemList">João</span>
+          <input formControlName="nome" type="text">
         </div>
-        
+
         <div class="list">
           <span class="itemLabel">Sobrenome:</span>
-          <span class="itemList">Silva</span>
+          <input formControlName="sobrenome" type="text">
         </div>
-        
-        <div class="list">
+
+        <div class="list select">
           <span class="itemLabel">Gênero:</span>
-          <span class="itemList">Masculino</span>
+          <div class="select-wrpaper">
+            <ion-select formControlName="genero" class="textarea" placeholder="Genêro">
+              <ion-option value="masculino">Masculino</ion-option>
+              <ion-option value="feminino">Feminino</ion-option>
+            </ion-select>
+          </div>
         </div>
-        
+
         <div class="list">
           <span class="itemLabel">Email:</span>
-          <span class="itemList">joao@teste</span>
+          <input formControlName="email" type="text">
         </div>
-        
+
         <div class="list">
           <span class="itemLabel">CPF:</span>
-          <span class="itemList">27550514003</span>
+          <input [brmasker]="{mask:'000.000.000-00', len:14, type: 'num'}" formControlName="cpf" type="text">
         </div>
-        
+
         <div class="list">
           <span class="itemLabel">Nome da Mãe:</span>
-          <span class="itemList">Maria Silva</span>
+          <input formControlName="nomeMae" type="text">
         </div>
-  
+
         <div class="list">
           <span class="itemLabel">Nome do Pai:</span>
-          <span class="itemList">José Silva</span>
+          <input formControlName="nomePai" type="text">
         </div>
-  
-        <div class="list">
-          <span class="itemLabel">Data de Nascimento:</span>
-          <span class="itemList">19/05/1972</span>
+
+        <div class="list date">
+          <ion-label>Data de Nascimento:</ion-label>
+          <ion-datetime formControlName="dataNascimento" displayFormat="DD/MM/YYYY" pickerFormat="DD/MM/YYYY"></ion-datetime>
         </div>
-  
+
         <div class="list">
           <span class="itemLabel">Contato:</span>
-          <span class="itemList">(51)999999999</span>
+          <input [brmasker]="{mask:'(99)99999-9999', len:14, type: 'num'}" formControlName="celular" type="text">
         </div>
-  
+
         <div class="list">
           <span class="itemLabel">Contato de Emergência:</span>
-          <span class="itemList">(51)998888888</span>
+          <input [brmasker]="{mask:'(99)9999-9999', len:13, type: 'num'}" formControlName="telEmergencia" type="text">
         </div>
-        
-        <div class="list">
+
+        <div class="list select">
           <span class="itemLabel">Alérgico à Medicação:</span>
-          <span class="itemList">Não</span>
+          <div class="select-wrpaper">
+              <ion-select multiple="true" formControlName="medicamentos" class="textarea" placeholder="Medicamentos">
+                <ion-option *ngFor="let option of listaMedicamentos" [value]="option.value">{{option.label}}</ion-option>
+              </ion-select>
+            </div>
         </div>
-        
-        <div class="list">
+
+        <div class="list select">
           <span class="itemLabel">Alérgico ao Alimento:</span>
-          <span class="itemList">Leite</span>
+          <div class="select-wrpaper">
+            <ion-select multiple="true" formControlName="alAlimentos" class="textarea" placeholder="Alimentos">
+              <ion-option *ngFor="let option of listaAlimentos" [value]="option.value">{{option.label}}</ion-option>
+            </ion-select>
+          </div>
         </div>
-        
-        <div class="list">
+
+        <div class="list select">
           <span class="itemLabel">Condição Especial:</span>
-          <span class="itemList">Sinusite Crônica</span>
+          <div class="select-wrpaper">
+              <ion-select multiple="true" formControlName="condEspecial" class="textarea" placeholder="Condição">
+                <ion-option *ngFor="let option of listaCondicao" [value]="option.value">{{option.label}}</ion-option>
+              </ion-select>
+            </div>
         </div>
-        
-        <div class="list">
+
+        <div class="list select">
           <span class="itemLabel">Tipo Sanguíneo:</span>
-          <span class="itemList">A+</span>
+          <div class="select-wrpaper">
+            <ion-select formControlName="tpoSanguineo" class="textarea" placeholder="Tipo Sanguíneo">
+              <ion-option value="A+">A+</ion-option>
+              <ion-option value="A-">A-</ion-option>
+              <ion-option value="B+">B+</ion-option>
+              <ion-option value="B-">B-</ion-option>
+              <ion-option value="O+">O+</ion-option>
+              <ion-option value="O-">O-</ion-option>
+              <ion-option value="AB-">AB-</ion-option>
+              <ion-option value="AB+">AB+</ion-option>
+            </ion-select>
+          </div>
         </div>
-  
+
         <div class="list">
           <span class="itemLabel">CNS:</span>
-          <span class="itemList">611744105557838</span>
+          <input formControlName="cns" type="text">
         </div>
+
         <button ion-button block class="button">Salvar</button>
-    </div>
-      
+      </form>
+
   </div>
 
 </ion-content>

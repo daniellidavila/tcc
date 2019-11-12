@@ -64,23 +64,16 @@
         <span class="itemList">{{usuario.telEmergencia}}</span>
       </div>
 
-      <div class="list">
-        <span class="itemLabel">Alérgico à Medicação:</span>
-        <span class="itemList">{{usuario.medicacao}}</span>
+      <div style="margin-top: 15px;">
+        <list-view title="Alérgico à Medicação" [data]="list"></list-view>
       </div>
 
       <div style="margin-top: 15px;">
-        <list-view title="Titulo de teste" [data]="list"></list-view>
+        <list-view title="Alérgico ao Alimento" [data]="usuario.alAlimentos"></list-view>
       </div>
 
-      <div class="list">
-        <span class="itemLabel">Alérgico ao Alimento:</span>
-        <span class="itemList">{{usuario.alAlimento}}</span>
-      </div>
-
-      <div class="list">
-        <span class="itemLabel">Condição Especial:</span>
-        <span class="itemList">{{usuario.condEspecial}}</span>
+      <div style="margin-top: 15px;">
+        <list-view title="Condição Especial" [data]="usuario.condEspecial"></list-view>
       </div>
 
       <div class="list">
