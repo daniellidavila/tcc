@@ -6,17 +6,17 @@
 
 <ion-content class="body">
   <div class="conteiner">
-    <form class="principal" [formGroup]="editForm">
+    <form class="principal" [formGroup]="editForm" (ngSubmit)="salvar()">
         <div class="topo">Editar Dados Pessoais</div>
 
         <div class="list">
           <span class="itemLabel">Nome:</span>
-          <input formControlName="nome" type="text">
+          <input formControlName="nome" placeholder="Digite o nome" type="text">
         </div>
 
         <div class="list">
           <span class="itemLabel">Sobrenome:</span>
-          <input formControlName="sobrenome" type="text">
+          <input formControlName="sobrenome" placeholder="Digite o sobrenome" type="text">
         </div>
 
         <div class="list select">
@@ -112,7 +112,7 @@
           <input formControlName="cns" type="text">
         </div>
 
-        <button ion-button block class="button">Salvar</button>
+        <button type="submit" ion-button block class="button">Salvar</button>
       </form>
 
   </div>

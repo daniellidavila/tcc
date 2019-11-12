@@ -28,6 +28,22 @@ export class UsersProvider {
       finalize<PayloadCadastroPaciente>(() => load.dismiss())
     )
   }
+  atualizarPaciente(body){
+    // Cria um Loading
+    
+    const load = this.load.create({
+      content: 'Aguarde...'
+    })
+    load.present();
+    return this.http.put(`${this.BASE_URL}/paciente`, body, {
+      headers: {
+        token: localStorage.getItem('token')
+      }
+    })
+    .pipe<PayloadCadastroPaciente>(
+      finalize<PayloadCadastroPaciente>(() => load.dismiss())
+    )
+  }
 
   getDetalhes(){
     // Cria um Loading
@@ -84,7 +100,7 @@ interface PayloadGetCombo {
   paciente: Paciente;
 }
 
-interface Combo {
+export interface Combo {
   label: string;
   value?: string;
 }
@@ -100,23 +116,23 @@ export interface PayloadGetPaciente {
   paciente: Paciente;
 }
 
-interface Paciente {
-  nome: string
-  nascimento: Date
-  sexo: string
-  cpf: string
-  email: string
-  cns: string
-  nomeMae: string
-  nomePai: string
-  celular: string
-  crm: string
-  expecialidade: string
-  telEmergencia: string
-  tpoSanguineo: string
-  medicamentos: any[]
-  alAlimentos: any[]
-  condEspecial: any[]
+export interface Paciente {
+  nome?: string
+  nascimento?: Date
+  sexo?: string
+  cpf?: string
+  email?: string
+  cns?: string
+  nomeMae?: string
+  nomePai?: string
+  celular?: string
+  crm?: string
+  expecialidade?: string
+  telEmergencia?: string
+  tpoSanguineo?: string
+  medicamentos?: any[]
+  alAlimentos?: any[]
+  condEspecial?: any[]
 };
 
 // Interface de dados que deve ser enviado para a função de cadastro
