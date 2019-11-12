@@ -13,8 +13,6 @@ export class DadosPessoaisPage {
 
   usuario = {}
 
-  list = []
-
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
@@ -25,17 +23,6 @@ export class DadosPessoaisPage {
   ionViewDidLoad (){
     this.userSrv.getDetalhes().subscribe(data => {
       this.usuario = data.paciente
-      this.list = [
-        'Teste',
-        'Teste',
-        'Teste',
-        'Teste',
-        'Teste',
-        'Teste',
-        'Teste',
-        'Teste',
-        'Teste'
-      ]
     })
     this.slides.spaceBetween = 16
   }

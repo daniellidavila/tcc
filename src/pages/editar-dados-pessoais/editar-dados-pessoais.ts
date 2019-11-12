@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { UsersProvider, Paciente, Combo } from '../../providers/users/users';
 
@@ -10,18 +10,18 @@ import { UsersProvider, Paciente, Combo } from '../../providers/users/users';
 })
 export class EditarDadosPessoaisPage {
   editForm: FormGroup = new FormGroup({
-    nome: new FormControl(null, Validators.required),
-    sobrenome: new FormControl(null, Validators.required),
-    genero: new FormControl(null),
-    email: new FormControl(null, Validators.required),
-    cpf: new FormControl(null, Validators.required),
-    cns: new FormControl(null),
-    nomeMae: new FormControl(null),
-    nomePai: new FormControl(null),
-    dataNascimento: new FormControl(null),
-    celular: new FormControl(null),
-    telEmergencia: new FormControl(null),
-    tpoSanguineo: new FormControl(null),
+    nome: new FormControl('', Validators.required),
+    sobrenome: new FormControl('', Validators.required),
+    genero: new FormControl(''),
+    email: new FormControl('', Validators.required),
+    cpf: new FormControl('', Validators.required),
+    cns: new FormControl(''),
+    nomeMae: new FormControl(''),
+    nomePai: new FormControl(''),
+    nascimento: new FormControl(''),
+    celular: new FormControl(''),
+    telEmergencia: new FormControl(''),
+    tpoSanguineo: new FormControl(''),
     condEspecial: new FormControl(null),
     medicamentos: new FormControl(null),
     alAlimentos: new FormControl(null),
@@ -36,7 +36,8 @@ export class EditarDadosPessoaisPage {
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    private userProvider: UsersProvider
+    private userProvider: UsersProvider,
+    private toast: ToastController
     ) {
   }
 
@@ -66,7 +67,7 @@ export class EditarDadosPessoaisPage {
       if (key === 'condEspecial') return;
       if (key === 'atendimentos') return;
 
-      if (key === 'cpf') {
+      if (key === 'cpf' && this.paciente.cpf.length < 14) {
         const { cpf } = this.paciente
         this.paciente.cpf = `${cpf.substring(0, 3)}.${cpf.substring(3, 6)}.${cpf.substring(6, 9)}-${cpf.substring(9, 11)}`;
       }
@@ -78,19 +79,16 @@ export class EditarDadosPessoaisPage {
   }
 
   setDefaultCondicao() {
-    this.editForm.controls.condEspecial.setValue(
-      this.listaCondicao.filter(condicao => this.paciente.condEspecial.some(cond => cond === condicao.value))
-    )
+    const tmp = this.listaCondicao.filter(condicao => this.paciente.condEspecial.some(cond => cond === condicao.value))
+    this.editForm.controls.condEspecial.setValue(tmp.map(condicao => condicao.value))
   }
   setDefaultMedicamento() {
-    this.editForm.controls.medicamentos.setValue(
-      this.listaMedicamentos.filter(medicamento => this.paciente.medicamentos.some(med => med === medicamento.value))
-    )
+    const tmp = this.listaMedicamentos.filter(medicamento => this.paciente.medicamentos.some(med => med === medicamento.value))
+    this.editForm.controls.medicamentos.setValue(tmp.map(medicamento => medicamento.value))
   }
   setDefaultAlimento() {
-    this.editForm.controls.alAlimentos.setValue(
-      this.listaAlimentos.filter(alimento => this.paciente.alAlimentos.some(ali => ali === alimento.value))
-    )
+    const tmp = this.listaAlimentos.filter(alimento => this.paciente.alAlimentos.some(ali => ali === alimento.value))
+    this.editForm.controls.alAlimentos.setValue(tmp.map(alimento => alimento.value))
   }
 
   salvar() {
@@ -98,12 +96,27 @@ export class EditarDadosPessoaisPage {
       this.userProvider.atualizarPaciente(this.editForm.value)
       .subscribe(data => {
         if (data.success) {
-          console.log('Deeeeeeeeuuuuuu');
+          this.toast.create({
+            message: 'Dados editados com sucesso!',
+            position: 'botton',
+            duration: 3000
+          }).present();
+          this.navCtrl.pop();
         } else {
+          this.toast.create({
+            message: 'Ocorreu um erro! Tente novamente mais tarde',
+            position: 'botton',
+            duration: 3000
+          }).present();
           console.log(data.errorList);
         }
       },
       err => {
+        this.toast.create({
+          message: 'Ocorreu um erro! Tente novamente mais tarde',
+          position: 'botton',
+          duration: 3000
+        }).present();
         console.log(err);
       })
     }

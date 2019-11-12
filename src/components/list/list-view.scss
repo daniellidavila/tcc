@@ -29,4 +29,18 @@ list-view{
       }
     }
   }
+
+  .options{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 4px;
+
+    div{
+      text-align: left;
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.8);
+      margin-bottom: 8px;
+    }
+  }
 }
