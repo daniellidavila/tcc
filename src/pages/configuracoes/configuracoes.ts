@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { MedicoPage } from '../medico/medico';
+import { LoginPage } from '../login/login';
+import { LogoutProvider } from '../../providers/logout/logout';
 
 /**
  * Generated class for the ConfiguracoesPage page.
@@ -16,11 +18,23 @@ import { MedicoPage } from '../medico/medico';
 })
 export class ConfiguracoesPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private logoutProvider: LogoutProvider, private toast: ToastController) {
   }
 
-  goToMedicoPage(){
-    this.navCtrl.push(MedicoPage)
+  // goToMedicoPage(){
+  //   this.navCtrl.push(MedicoPage)
+  // }
+
+  goToMensagem(){
+    this.toast.create({
+      message: 'Em desenvolvimento!',
+      position: 'botton',
+      duration: 3000
+    }).present();
+  }
+
+  goToLoginPage(){
+    this.logoutProvider.logoutEmitter.emit()
   }
 
 }

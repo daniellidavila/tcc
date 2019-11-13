@@ -29,19 +29,19 @@
             Sair
         </button> -->
         <div class="item">
-            <span><ion-icon name="information-circle"></ion-icon> Sobre Nós </span>
+            <span (click)="goToMensagem()"><ion-icon name="information-circle"></ion-icon> Sobre Nós </span>
         </div>
 
         <div class="item">
-            <span><ion-icon name="help"></ion-icon> Ajuda </span>
+            <span (click)="goToMensagem()"><ion-icon name="help"></ion-icon> Ajuda </span>
         </div>
 
         <div class="item">
-            <span (click)="goToMedicoPage()"><ion-icon name="medical"></ion-icon> Entrar como Médico </span>
+            <span (click)="goToMensagem()"><ion-icon name="medical"></ion-icon> Entrar como Médico </span>
         </div>
         
         <div class="item">
-            <span><ion-icon name="exit"></ion-icon> Sair </span>
+            <span (click)="goToLoginPage()"><ion-icon name="exit"></ion-icon> Sair </span>
         </div>
         
         
