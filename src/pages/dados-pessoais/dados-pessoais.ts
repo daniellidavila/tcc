@@ -20,10 +20,13 @@ export class DadosPessoaisPage {
     ) {
   }
 
-  ionViewDidLoad (){
+  ionViewDidEnter (){
     this.userSrv.getDetalhes().subscribe(data => {
       this.usuario = data.paciente
     })
+  }
+
+  ionViewDidLoad() {
     this.slides.spaceBetween = 16
   }
 

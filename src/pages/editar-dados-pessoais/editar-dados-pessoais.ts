@@ -14,18 +14,18 @@ export class EditarDadosPessoaisPage {
     sobrenome: new FormControl('', Validators.required),
     genero: new FormControl(''),
     email: new FormControl('', Validators.required),
+    celular: new FormControl(null),
     cpf: new FormControl('', Validators.required),
     cns: new FormControl(''),
     nomeMae: new FormControl(''),
     nomePai: new FormControl(''),
     nascimento: new FormControl(''),
-    celular: new FormControl(''),
     telEmergencia: new FormControl(''),
     tpoSanguineo: new FormControl(''),
     condEspecial: new FormControl(null),
     medicamentos: new FormControl(null),
     alAlimentos: new FormControl(null),
-  })
+  }, { updateOn: 'change' })
 
   listaMedicamentos: Combo[] = [];
   listaAlimentos: Combo[] = [];
