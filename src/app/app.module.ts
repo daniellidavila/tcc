@@ -26,6 +26,7 @@ import { EditarDadosPessoaisPage } from '../pages/editar-dados-pessoais/editar-d
 import { MedicoPage } from '../pages/medico/medico';
 import { ComponentsModule } from '../components/components.module';
 import { AtendimentoProvider } from '../providers/atendimento/atendimento';
+import { LogoutProvider } from '../providers/logout/logout';
 
 @NgModule({
   declarations: [
@@ -70,6 +71,7 @@ import { AtendimentoProvider } from '../providers/atendimento/atendimento';
     UsersProvider,
     SessionProvider,
     AtendimentoProvider,
+    LogoutProvider,
   ]
 })
 export class AppModule {}
